@@ -6,11 +6,10 @@
 		body {	
 			background-image: url(/img/pink_background.jpg);
 			background-size: 1500px;
-
 		}
 
 		.h2 {
-			color: #9900CC;
+			color: #7C00A6;
 		}
 
 		.button_color {
@@ -22,16 +21,17 @@
 			height: 100px;
 			width: 100px;
 			border: 2px solid white;
+			color: white;
+			font-family: fantasy;
+			font-size: 75px;
+			text-align: center;
 		}
 
 		.container_color {
 			height: 700px; 
-			/*width: 1000px;*/
-			/*width: 80%; */
 			margin:10px;
 			border: 2px solid black;
 			background-color: #009999;
-			/*float:right;*/
 		}
 
 		.container1 {
@@ -60,11 +60,10 @@
 		}
 
 		.flower {
-			background-color: red;
+			background-color: #CC0000;
 			background-image: url("/img/red_flower.jpg");
-			background-size: 225px;
+			background-size: 195px;
 			background-repeat: no-repeat;
-
 		}
 	</style>
 </head>
@@ -73,7 +72,7 @@
 
 	<div class = "container_color container1">
 		<button class = "button_color">Your Score:</button>
-		<div class = "score_box"></div>
+		<div class = "score_box">0</div>
 		<h1 class = "h2">Click the flower and score points.</h1>
 	</div>
 
@@ -128,24 +127,30 @@
 	<script src="/jquery/jquery.min.js"></script>
 	<script type = "text/javascript">
 		$('document').ready(function() {
-			$(".box_size").click(function(event) {
-	        	event.preventDefault();
+			var counter = 0;
+			$(".box_size").click(function(event) {				
+	        	event.preventDefault();	        	
+	            var addPoint = $(this).hasClass('flower');
 	            $(this).removeClass('flower');
-
+				if (addPoint) {
+				counter++;
+				$('.score_box').text(counter);
+				}
 	        });
 	    });
     	function getRandomInt() {
 		  return Math.floor(Math.random() * (9));
 		}
+		
 		setInterval (function () {
 			var random = getRandomInt();
-			// console.log(random);
 			var array = $("#container").children();
-			// console.log (array);
-			$(array[random]).addClass("flower");
-			// console.log(array[random]);
-		},2000);
+			$(array[random]).addClass('flower');
+			setInterval (function () {
+				$(array[random]).removeClass('flower');
+			},3000);
 
+		},1000);
     </script>
     <script src = "/js/moment.js"></script>
 </body>
