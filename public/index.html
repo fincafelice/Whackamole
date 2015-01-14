@@ -3,9 +3,50 @@
 	<title>Whackamole</title>
 
 	<style>
+		body {	
+			background-image: url(/img/pink_background.jpg);
+			background-size: 1500px;
+
+		}
+
+		.h2 {
+			color: #9900CC;
+		}
+
+		.button_color {
+			color: white;
+			background-color: #9900CC;
+		}
+
+		.score_box {
+			height: 100px;
+			width: 100px;
+			border: 2px solid white;
+		}
+
+		.container_color {
+			height: 700px; 
+			/*width: 1000px;*/
+			/*width: 80%; */
+			margin:10px;
+			border: 2px solid black;
+			background-color: #009999;
+			/*float:right;*/
+		}
+
+		.container1 {
+			width: 10%; 
+			float:left;
+		}
+
+		.container2 {
+			width: 85%; 
+			float:right;
+		}
+
 		.box_size {
-			height: 200px;
-			width: 200px;
+			height: 175px;
+			width: 175px;
 			margin: 5px;
 			border: 2px solid black;
 			padding: 10px;
@@ -29,7 +70,14 @@
 </head>
 
 <body> 
-	<div id = "container">
+
+	<div class = "container_color container1">
+		<button class = "button_color">Your Score:</button>
+		<div class = "score_box"></div>
+		<h1 class = "h2">Click the flower and score points.</h1>
+	</div>
+
+	<div id = "container" class = "container_color container2">		
 		<!--1-->
 		<div class = "box_size box_color">
 			<h1>Psychotria Elatra</h1>
@@ -75,6 +123,7 @@
 			<h1>Psychotria Elatra</h1>
 		</div>
 	</div>
+
 
 	<script src="/jquery/jquery.min.js"></script>
 	<script type = "text/javascript">
