@@ -1,0 +1,103 @@
+<html>
+<head>
+	<title>Whackamole</title>
+
+	<style>
+		.box_size {
+			height: 200px;
+			width: 200px;
+			margin: 5px;
+			border: 2px solid black;
+			padding: 10px;
+		}
+
+		.box_color {
+			margin-left: 90px;
+			background-color: #9900CC;
+			float: left;
+			color: white;
+		}
+
+		.flower {
+			background-color: red;
+			background-image: url("/img/red_flower.jpg");
+			background-size: 225px;
+			background-repeat: no-repeat;
+
+		}
+	</style>
+</head>
+
+<body> 
+	<div id = "container">
+		<!--1-->
+		<div class = "box_size box_color">
+			<h1>Psychotria Elatra</h1>
+		</div>
+
+		<!--2-->
+		<div class = "box_size box_color">
+			<p>This weird plant might look like the work of photo editing software, but I can assure you those kissable lips are all natural.</p>
+		</div>
+
+		<!--3-->
+		<div class = "box_size box_color">
+			<p>Found in the tropical rain forests of Central and South American countries like Colombia, Costa Rica, <strong>Panama</strong> and Ecuador.</p>
+		</div>
+
+		<!--4-->
+		<div class = "box_size box_color">
+			<p>The <strong>Psychotria Elatra</strong> plant has apparently evolved into its current shape to attract pollinators including hummingbirds and butterflies.</p>
+		</div>
+
+		<!--5-->
+		<div class = "box_size box_color">
+			<h1>Psychotria Elatra</h1>
+		</div>
+
+		<!--6-->
+		<div class = "box_size box_color">
+			<p>This extraordinary flower has unfortunately become endangered due to uncontrolled deforestation in the above-mentioned countries. </p>
+		</div>
+
+		<!--7-->
+		<div class = "box_size box_color">
+			<p>So if you’ve ever wanted to plant a kiss on Mother Nature, find yourself a Hot Lips plant and do it while you still can. </p>
+		</div>
+
+		<!--8-->
+		<div class = "box_size box_color">
+			<p>The bracts are only kissable for a short while, before they spread open to reveal the plant’s flowers.</p>
+		</div>
+
+		<!--9-->
+		<div class = "box_size box_color">
+			<h1>Psychotria Elatra</h1>
+		</div>
+	</div>
+
+	<script src="/jquery/jquery.min.js"></script>
+	<script type = "text/javascript">
+		$('document').ready(function() {
+			$(".box_size").click(function(event) {
+	        	event.preventDefault();
+	            $(this).removeClass('flower');
+
+	        });
+	    });
+    	function getRandomInt() {
+		  return Math.floor(Math.random() * (9));
+		}
+		setInterval (function () {
+			var random = getRandomInt();
+			// console.log(random);
+			var array = $("#container").children();
+			// console.log (array);
+			$(array[random]).addClass("flower");
+			// console.log(array[random]);
+		},2000);
+
+    </script>
+    <script src = "/js/moment.js"></script>
+</body>
+</html>
